@@ -3,11 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 
 function Navbar() {
   const user = JSON.parse(localStorage.getItem("user"));
-  console.log(user);
 
   const navigate = useNavigate();
 
   const logout = () => {
+    alert("Do you want to logout?");
     localStorage.clear("user");
     navigate("/login");
   };
@@ -28,9 +28,14 @@ function Navbar() {
             <li className="cursor-pointer">Home</li>
           </Link>
           {user && (
-            <li onClick={logout} className="cursor-pointer">
-              Logout
-            </li>
+            <>
+              <li onClick={logout} className="cursor-pointer">
+                Logout
+              </li>
+              <Link to={"/addproduct"}>
+                <li className="cursor-pointer">AddProduct</li>
+              </Link>
+            </>
           )}
         </ul>
       </div>

@@ -17,7 +17,7 @@ function Card() {
     }
     // console.log(data);
   };
-  console.log(product);
+
   useEffect(() => {
     getProduct();
   }, []);
